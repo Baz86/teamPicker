@@ -1,0 +1,1 @@
+var pickerTeamApp = angular.module("PickerTeamApp", []);

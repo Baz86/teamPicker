@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta carset="utf-8"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body ng-app="PickerTeamApp" ng-controller="PickerController">
+	<h1>Team Picker</h1>
+	<p>Enter the names of the people who are playing and choose a skill level between 1-10.<br> Don't like the teams? Hit the "Pick Random Teams" button to keep shuffling!</p>
+	<div class="container pick-team">
+		<div class="row">
+			
+				<form class="simple-form">
+					<button class="btn btn-danger" ng-click="shuffleTeams()">
+					Pick Random Teams</button>
+					<button class="btn btn-danger shuffle" ng-click="pickTeams()">Pick Even Teams</button>
+					<select class="selectpicker" data-style="btn-primary" ng-model="totalPlayers" ng-change="changeTotal()">
+						<option value="" disabled selected>Select number of players</option>
+					  	<option>10</option>
+				      	<option>12</option>
+				      	<option>14</option>
+				      	<option>16</option>
+				      	<option>18</option>
+				  	</select>
+					<div class="col-md-3 col-xs-6" id="playerNames">
+						<label>Name</label><br>
+						<input type="text" class="name" ng-model="players[0].name" required><br>
+						<input type="text" class="name" ng-model="players[1].name" required><br>
+						<input type="text" class="name" ng-model="players[2].name" required><br>
+						<input type="text" class="name" ng-model="players[3].name" required><br>
+						<input type="text" class="name" ng-model="players[4].name" required><br>
+						<input type="text" class="name" ng-model="players[5].name" required><br>
+						<input type="text" class="name" ng-model="players[6].name" required><br>
+						<input type="text" class="name" ng-model="players[7].name" required><br>
+						<input type="text" class="name" ng-model="players[8].name" required><br>
+						<input type="text" class="name" ng-model="players[9].name" required><br>
+						<input type="text" class="name" ng-model="players[10].name" ng-if="sixASide" required><br>
+						<input type="text" class="name" ng-model="players[11].name" ng-if="sixASide" required><br>
+						<input type="text" class="name" ng-model="players[12].name" ng-if="sevenASide" required><br>
+						<input type="text" class="name" ng-model="players[13].name" ng-if="sevenASide" required><br>
+						<input type="text" class="name" ng-model="players[14].name" ng-if="eightASide" required><br>
+						<input type="text" class="name" ng-model="players[15].name" ng-if="eightASide" required>
+						<input type="text" class="name" ng-model="players[16].name" ng-if="nineASide" required>
+						<input type="text" class="name" ng-model="players[17].name" ng-if="nineASide" required>
+						
+					</div>
+					<div class="col-md-3 col-xs-6 playerSkills">
+						<label>Rating (Out of 10)</label><br>
+						<input type="number" min="1" max="10" class="rating" ng-model="players[0].skill" required><br>
+						<input type="number" min="1" max="10" class="rating" ng-model="players[1].skill" required><br>
+						<input type="number" min="1" max="10" class="rating" ng-model="players[2].skill" required><br>
+						<input type="number" min="1" max="10" class="rating" ng-model="players[3].skill" required><br>
+						<input type="number" min="1" max="10" class="rating" ng-model="players[4].skill" required><br>
+						<input type="number" min="1" max="10" class="rating" ng-model="players[5].skill" required><br>
+						<input type="number" min="1" max="10" class="rating" ng-model="players[6].skill" required><br>
+						<input type="number" min="1" max="10" class="rating" ng-model="players[7].skill" required><br>
+						<input type="number" min="1" max="10" class="rating" ng-model="players[8].skill" required><br>
+						<input type="number" min="1" max="10" class="rating" ng-model="players[9].skill" required><br>
+						<input type="number" min="1" max="10" class="rating" ng-model="players[10].skill" ng-if="sixASide" required><br>
+						<input type="number" min="1" max="10" class="rating" ng-model="players[11].skill" ng-if="sixASide" required><br>
+						<input type="number" min="1" max="10" class="rating" ng-model="players[12].skill" ng-if="sevenASide" required><br>
+						<input type="number" min="1" max="10" class="rating" ng-model="players[13].skill" ng-if="sevenASide" required><br>
+						<input type="number" min="1" max="10" class="rating" ng-model="players[14].skill" ng-if="eightASide" required><br>
+						<input type="number" min="1" max="10" class="rating" ng-model="players[15].skill" ng-if="eightASide" required><br>
+						<input type="number" min="1" max="10" class="rating" ng-model="players[16].skill" ng-if="nineASide" required><br>
+						<input type="number" min="1" max="10" class="rating" ng-model="players[17].skill" ng-if="nineASide" required>
+					</div>	
+				</form>
+				<div class="col-md-3 col-xs-6 teams">
+					<ul>
+						<h3 ng-show="showList">Team One</h3>
+						<li ng-repeat="player in playersOne track by $index" ng-show="showList"></p>{{ player.name }} {{ player.skill }}</p></li>
+					</ul>
+				</div>
+				<div class="col-md-3 col-xs-6 teams">
+					<ul>
+						<h3 ng-show="showList">Team Two</h3>
+						<li class="teamTwo" ng-repeat="player in playersTwo track by $index" ng-show="showList"></p>{{ player.name }} {{ player.skill }}</p></li>
+					</ul>
+				</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<script src="app.js"></script>
+	<script src="controllers/pickerController.js"></script>
+</body>
+</html>
