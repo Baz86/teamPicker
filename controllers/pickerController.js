@@ -22,6 +22,16 @@ pickerTeamApp.controller("PickerController", ["$scope", function($scope) {
   			return array;
 		}
 
+	function teamTotal(team) {
+		var sum = 0;
+
+		for (var i = 0; i < team.length; i += 1) {
+			sum += team[i].skill;
+		}
+
+		return sum;
+	};
+
 	$scope.evenTeams = function() {
 			for (var i = 0; i < $scope.players.length; i += 1) {
 				if ((i % 2)!= 0) {
@@ -41,7 +51,10 @@ pickerTeamApp.controller("PickerController", ["$scope", function($scope) {
 		});
 
 		$scope.evenTeams();
+		$scope.playersOneTotal = teamTotal($scope.playersOne);
+		$scope.playersTwoTotal = teamTotal($scope.playersTwo);
 		$scope.showList = true;
+		$scope.total = true;
 	}
 
 	$scope.shuffleTeams = function() {
@@ -50,6 +63,7 @@ pickerTeamApp.controller("PickerController", ["$scope", function($scope) {
 		$scope.playersOne = $scope.players.slice(0, cut);
 		$scope.playersTwo = $scope.players.slice(cut);
 		$scope.showList = true;
+		$scope.total = false;
 	}
 
 	$scope.changeTotal = function() {

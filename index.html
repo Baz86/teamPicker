@@ -70,13 +70,13 @@
 				</form>
 				<div class="col-md-3 col-xs-6 teams">
 					<ul>
-						<h3 ng-show="showList">Team One</h3>
+						<h3 ng-show="showList">Team One</h3> <h5 ng-show="total">Total: {{playersOneTotal}}</h5>
 						<li ng-repeat="player in playersOne track by $index" ng-show="showList"></p>{{ player.name }} {{ player.skill }}</p></li>
 					</ul>
 				</div>
 				<div class="col-md-3 col-xs-6 teams">
 					<ul>
-						<h3 ng-show="showList">Team Two</h3>
+						<h3 ng-show="showList">Team Two</h3> <h5 ng-show="total">Total: {{playersTwoTotal}}</h5>
 						<li class="teamTwo" ng-repeat="player in playersTwo track by $index" ng-show="showList"></p>{{ player.name }} {{ player.skill }}</p></li>
 					</ul>
 				</div>
