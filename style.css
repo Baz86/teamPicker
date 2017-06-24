@@ -1,11 +1,16 @@
+/* Setting the font-family of all text in the body to Avenir with a fallback of Arial */
+
 body {
-	font-family: Avenir;
+	font-family: Avenir, Arial;
 }
 
+/* Removing any styling from my lists of teams */
 
 ul {
 	list-style-type: none;
 }
+
+/* Setting the styling of the list items and the colour and border of teamOne */
 
 li {
 	border: 2px solid #af1b3f;
@@ -14,14 +19,11 @@ li {
 	text-align: center;
 	margin: 5px;
 	font-size: 16px;
-	font-family: Avenir;
 }
-
 
 h1 {
 	color: #ea4335;
 	text-align: center;
-	font-family: Avenir;
 	margin-top: 20px;
 }
 
@@ -37,12 +39,10 @@ p {
 
 h3 {
 	text-align: center;
-	font-family: Avenir;
 }
 
 label {
 	color: #af1b3f;
-	font-family: Avenir;
 	font-size: 16px;
 }
 
@@ -51,22 +51,33 @@ select {
 	
 }
 
+/* Sets the styling of the container div for the form and team displays. This is the green box in the middle
+of the page. */
+
 .pick-team {
 	background-color: #34a853;
 	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-bottom: 50px;
 	border-radius: 10px;
 	padding: 50px;
+	height: 100%;
 }
+
+/* Sets the padding of the individual list elements containing my players */
 
 .teams {
 	padding-top: 40px;
 }
 
+/* Using a class the below CSS styles the teamTwo list to be a different colour to team one. */
+
 .teamTwo {
 	background-color: #19b5fe;
 	border: 2px solid #035996;
 }
+
+/* .rating and .name classes set the styles for the name and skill inputs. I gave them seperate classes
+becuase of the difference in size. */
 
 .rating {
 	width: 20%;
@@ -80,6 +91,8 @@ select {
 	border: 2px solid gray;
 	border-radius: 5px;
 }
+
+/* This bit of CSS floats my shuffle teams button to the far right of the container div. */
 
 .shuffle {
 	float: right;
